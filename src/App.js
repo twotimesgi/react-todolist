@@ -1,23 +1,30 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import InputComponent from './components/InputComponent';
+import TaskItem  from './components/TaskItem';
 
 function App() {
+  const initial_tasks = [
+    { name: "Create your first task!", done: true }
+  ];
+
+  const [tasks, setTasks] = useState(initial_tasks);
+  function submitHandler(data){
+    setTasks(prev => {
+      return [...prev, data];
+    });
+  }
+
+  function handleCheck(index){
+    tasks[index].done = !tasks[index].done;
+    setTasks([...tasks]);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <InputComponent onSubmit={submitHandler}/>
+
+      { tasks.map( (item, index) => <TaskItem key={index} onCheck={handleCheck} item={item} index={index}/> ) }
     </div>
   );
 }

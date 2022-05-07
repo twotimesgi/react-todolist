@@ -1,0 +1,39 @@
+
+
+input{
+    flex-grow: 1;
+    border: none;
+    background-color: transparent;
+    height: 100%;
+    font-size: 1.1rem;
+    background-color: white;
+    padding: 0 10px;
+    border-radius: 1rem;
+    border: 3px solid transparent;
+  }
+  
+  form{
+    height: 50px;
+    display: flex;
+    gap: 20px;
+  }
+  
+  :focus{
+    outline: none;
+    border: 3px solid orange;
+  }
+  
+  button{
+    background-color: white;
+    flex-grow: 0;
+    border: 0;
+    padding: 10px 10px;
+    font-size: 1.1rem;
+    border: 3px solid transparent;
+    border-radius: 1rem;
+  }
+
+  p{
+color: red; 
+margin: 10px 0;
+}
